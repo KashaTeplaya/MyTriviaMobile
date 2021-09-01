@@ -1,9 +1,6 @@
-import React, {useState, useEffect} from 'react'
-import {Button, View, Text , StyleSheet, TouchableHighlight} from 'react-native'
+import React from 'react'
+import {Button, View, StyleSheet } from 'react-native'
 import {decode} from 'html-entities';
-import { TouchableOpacity } from 'react-native';
-
-
 
 function Buttons(props) { 
     const answers  = [props.correct_answer, ...props.incorrect_answers]
@@ -40,7 +37,7 @@ function Buttons(props) {
     );
 }
  
-export var styles = StyleSheet.create({
+var styles = StyleSheet.create({
     btnNormal: {
       borderColor: 'blue',
       borderWidth: 1,

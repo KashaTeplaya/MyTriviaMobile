@@ -1,11 +1,9 @@
 import React from 'react'
 import Cards from './Cards'
 import Buttons from './Buttons'
-import {Text, View } from 'react-native'
+import {Text, View, StyleSheet } from 'react-native'
 import {useEffect, useState} from 'react'
-import {decode} from 'html-entities';
 import { Button } from 'react-native'
-import { styles } from './Buttons'
 
 
 let score = 0;
@@ -33,16 +31,9 @@ function ContainerTrivia() {
     const addScore = (event) => {
         if(event === items[i].correct_answer){
             score++;
-           // event.target.classList.add('correct')
         }
-        else{
-          //  event.target.classList.add('incorrect')
-        }
-        setTimeout(()=>{
-            nextCard()
-           // event.target.classList.remove('correct')
-          //  event.target.classList.remove('incorrect')
-        },1000)
+         nextCard()
+    
     }
     function reloadApp() {
         console.log('App was reloaded')
@@ -52,8 +43,8 @@ function ContainerTrivia() {
     }
     if(items.length>0 && i<items.length){
         return(
-            <View>
-                <Text> Trivia Game </Text>
+            <View style={styles.container}>
+                <Text style={styles.title}> Trivia Game </Text>
                 <Cards  question={items[i].question}/>
                <Buttons 
                correct_answer = {items[i].correct_answer} 
@@ -66,10 +57,10 @@ function ContainerTrivia() {
     else {
         if(i===items.length){
             return (
-                <View> 
-                    <Text> Trivia Game </Text>
+                <View  style={styles.container}> 
+                    <Text style={styles.title}> Trivia Game </Text>
                     <View>
-                    <Text> Your score = {score}</Text>
+                    <Text style={styles.title}> Your score = {score}</Text>
                    </View>
                     <Button title='reload' onPress={ reloadApp }></Button> 
                </View>
@@ -86,5 +77,18 @@ function ContainerTrivia() {
         
     
 }
+
+var styles = StyleSheet.create({
+    title: {
+        fontSize: 40,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        marginTop: '10%',
+    },
+    container:{
+        backgroundColor:  'rgba(84, 23, 197, 0.315)',
+        flex: 1,
+    }
+  });
 
 export default ContainerTrivia
