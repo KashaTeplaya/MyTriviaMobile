@@ -10,9 +10,12 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@react-native-firebase/app": "^12.7.3",
+    "@react-native-firebase/messaging": "^12.7.3",
     "html-entities": "^2.3.2",
     "react": "17.0.2",
     "react-native": "0.65.1",
+    "react-native-push-notification": "^8.0.1",
     "react-native-render-html": "^6.0.5",
     "striptags": "^3.2.0"
   },
